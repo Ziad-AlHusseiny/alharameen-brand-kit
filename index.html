@@ -1,0 +1,702 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>الحرمين استيل — الهوية البصرية الجديدة</title>
+<meta name="description" content="Brand Kit — الحرمين استيل للمنشآت المعدنية. الشعار الجديد، الفكرة، الرحلة، الألوان، الخطوط، والتطبيقات.">
+<link rel="icon" href="assets/emblem.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Chakra+Petch:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --navy:#0B1B2B; --navy-2:#122539; --navy-3:#1A3049;
+  --red:#C1121F; --red-2:#E0202F; --amber:#F0A73C;
+  --c50:#F7F8FA; --c100:#EEF1F4; --c200:#DDE2E8; --c300:#C3CAD3; --c500:#8B97A5; --c700:#3A4552;
+  --ink:#0B1B2B; --paper:#F3F1EC;
+  --font-display:'Cairo',sans-serif; --font-body:'IBM Plex Sans Arabic','Cairo',sans-serif; --font-tech:'Chakra Petch','Cairo',monospace;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--navy);color:#fff;font-family:var(--font-body);line-height:1.8;overflow-x:hidden;cursor:none}
+@media (hover:none){body{cursor:auto}}
+::selection{background:var(--red);color:#fff}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+h1,h2,h3,h4{font-family:var(--font-display);line-height:1.15;margin:0}
+.tech{font-family:var(--font-tech);letter-spacing:.14em;text-transform:uppercase;direction:ltr;display:inline-block}
+.container{width:min(1240px,92%);margin-inline:auto}
+section{position:relative;padding:clamp(80px,12vw,160px) 0}
+
+/* ============ ATMOSPHERE ============ */
+.grain{pointer-events:none;position:fixed;inset:0;z-index:9000;opacity:.06;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.blueprint{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(ellipse at center,#000 30%,transparent 75%)}
+.hazard{height:8px;background:repeating-linear-gradient(-45deg,var(--amber) 0 16px,var(--navy) 16px 32px)}
+.hazard.red{background:repeating-linear-gradient(-45deg,var(--red) 0 16px,#fff 16px 32px)}
+
+/* cursor */
+#cursor{position:fixed;top:0;left:0;width:14px;height:14px;border-radius:50%;background:var(--red);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .25s,height .25s,background .25s;mix-blend-mode:difference}
+#cursor.big{width:64px;height:64px;background:#fff}
+#glow{position:fixed;top:0;left:0;width:520px;height:520px;border-radius:50%;pointer-events:none;z-index:0;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(193,18,31,.18),transparent 60%);filter:blur(10px)}
+@media (hover:none){#cursor,#glow{display:none}}
+
+/* progress */
+#progress{position:fixed;top:0;right:0;left:0;height:4px;background:linear-gradient(90deg,var(--red),var(--amber));width:0;z-index:9500;transform-origin:right}
+
+/* nav */
+.topbar{position:fixed;top:0;right:0;left:0;z-index:9400;display:flex;align-items:center;justify-content:space-between;padding:18px 4%;mix-blend-mode:difference}
+.topbar img{height:36px}
+.topbar nav{display:flex;gap:26px;font-family:var(--font-display);font-weight:700;font-size:13px}
+.topbar nav a{position:relative;opacity:.8;transition:opacity .3s}
+.topbar nav a:after{content:"";position:absolute;right:0;bottom:-4px;height:2px;width:0;background:#fff;transition:width .4s var(--ease)}
+.topbar nav a:hover{opacity:1}.topbar nav a:hover:after{width:100%}
+@media(max-width:900px){.topbar nav{display:none}}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv[data-d="1"]{transition-delay:.1s}.rv[data-d="2"]{transition-delay:.2s}.rv[data-d="3"]{transition-delay:.3s}.rv[data-d="4"]{transition-delay:.4s}.rv[data-d="5"]{transition-delay:.5s}.rv[data-d="6"]{transition-delay:.6s}
+.rv-clip{clip-path:inset(0 0 100% 0);transition:clip-path 1.1s var(--ease)}.rv-clip.in{clip-path:inset(0 0 0 0)}
+.line-rv{overflow:hidden}.line-rv>span{display:block;transform:translateY(110%);transition:transform 1s var(--ease)}.line-rv.in>span{transform:none}
+
+/* headings */
+.eyebrow{color:var(--red-2);font-family:var(--font-tech);font-size:12px;letter-spacing:.3em;text-transform:uppercase;direction:ltr;display:inline-flex;align-items:center;gap:12px;margin-bottom:18px}
+.eyebrow:before{content:"";width:36px;height:2px;background:var(--red-2)}
+h2.title{font-size:clamp(34px,5vw,64px);font-weight:900;margin-bottom:18px}
+p.lead{font-size:clamp(17px,1.6vw,21px);color:var(--c300);max-width:640px}
+.light{background:var(--paper);color:var(--ink)}
+.light p.lead{color:var(--c700)}
+.light .eyebrow{color:var(--red)}
+
+/* ============ HERO ============ */
+.hero{min-height:100svh;display:grid;place-items:center;text-align:center;padding:120px 0 80px;overflow:hidden;background:radial-gradient(ellipse 80% 60% at 50% 20%,#17324c,var(--navy) 70%)}
+.hero .blueprint{animation:gridDrift 30s linear infinite}
+@keyframes gridDrift{to{background-position:48px 48px,48px 48px}}
+.hero-emblem{width:clamp(200px,28vw,320px);margin:0 auto 34px;position:relative}
+.hero-emblem svg{width:100%;height:auto;overflow:visible}
+.hero-emblem .stroke{fill:none;stroke:#fff;stroke-width:6;stroke-dasharray:9000;stroke-dashoffset:9000;animation:draw 2.6s var(--ease) forwards}
+.hero-emblem .fill{fill:var(--red);opacity:0;animation:fillIn 1.2s 2.1s var(--ease) forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fillIn{to{opacity:1}}
+.hero-emblem:after{content:"";position:absolute;inset:-40%;background:radial-gradient(circle,rgba(193,18,31,.35),transparent 60%);z-index:-1;opacity:0;animation:fillIn 2s 2.4s forwards}
+.hero h1{font-size:clamp(46px,8vw,120px);font-weight:900;letter-spacing:-.01em}
+.hero h1 .rl{color:var(--red-2)}
+.hero .sub{font-family:var(--font-tech);letter-spacing:.35em;color:var(--c300);font-size:clamp(11px,1.3vw,15px);direction:ltr;margin-top:14px}
+.hero p.lead{margin:28px auto 0}
+.hero .h-line{animation-delay:2.4s}
+.hero-meta{display:flex;gap:40px;justify-content:center;margin-top:60px;flex-wrap:wrap}
+.hero-meta div{text-align:center}
+.hero-meta b{display:block;font-family:var(--font-tech);font-size:36px;color:#fff;direction:ltr}
+.hero-meta span{font-size:13px;color:var(--c500)}
+.scroll-hint{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);font-family:var(--font-tech);font-size:11px;letter-spacing:.3em;color:var(--c500);direction:ltr}
+.scroll-hint i{display:block;width:1px;height:48px;margin:10px auto 0;background:linear-gradient(var(--red),transparent);animation:hint 1.8s infinite}
+@keyframes hint{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+.fade-late{opacity:0;animation:fillIn 1s 2.6s forwards}
+
+/* ============ MARQUEE ============ */
+.marquee{overflow:hidden;border-block:1px solid rgba(255,255,255,.1);padding:18px 0;background:var(--navy-2)}
+.marquee-track{display:flex;gap:56px;width:max-content;animation:marq 40s linear infinite;direction:ltr}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee span{font-family:var(--font-display);font-weight:800;font-size:22px;white-space:nowrap;color:var(--c300)}
+.marquee span:nth-child(odd){color:#fff}
+.marquee span b{color:var(--red-2);margin:0 20px;font-weight:400}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* ============ BEFORE / AFTER ============ */
+.compare{position:relative;aspect-ratio:16/8;border:1px solid var(--c200);background:#fff;overflow:hidden;user-select:none}
+.compare .pane{position:absolute;inset:0;display:grid;place-items:center}
+.compare .pane img{max-width:60%;max-height:60%}
+.compare .after{clip-path:inset(0 0 0 var(--x,50%))}
+.compare .after{background:var(--navy)}
+.compare .handle{position:absolute;top:0;bottom:0;left:var(--x,50%);width:2px;background:var(--red);transform:translateX(-50%)}
+.compare .handle:before{content:"⇔";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;font-size:20px;box-shadow:0 10px 30px rgba(193,18,31,.5)}
+.compare input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.compare .tag{position:absolute;top:16px;font-family:var(--font-tech);font-size:11px;letter-spacing:.25em;padding:6px 12px;border:1px solid currentColor;direction:ltr}
+.compare .tag.old{right:16px;color:var(--c700)}.compare .tag.new{left:16px;color:#fff}
+.two{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+@media(max-width:900px){.two{grid-template-columns:1fr}}
+.issues{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:10px}
+.issues li{padding:12px 16px;border-inline-start:3px solid var(--red);background:#fff;font-size:15px;transition:transform .4s var(--ease)}
+.issues li:hover{transform:translateX(-8px)}
+
+/* ============ BRIEF ============ */
+.brief-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:50px}
+@media(max-width:900px){.brief-grid{grid-template-columns:1fr}}
+.brief-card{background:var(--navy-2);border:1px solid rgba(255,255,255,.08);padding:28px;position:relative;overflow:hidden;transition:transform .5s var(--ease),border-color .5s}
+.brief-card:before{content:"";position:absolute;top:0;right:0;left:0;height:3px;background:var(--red);transform:scaleX(0);transform-origin:right;transition:transform .5s var(--ease)}
+.brief-card:hover{transform:translateY(-6px);border-color:rgba(255,255,255,.2)}
+.brief-card:hover:before{transform:scaleX(1)}
+.brief-card .k{font-family:var(--font-tech);font-size:11px;letter-spacing:.25em;color:var(--red-2);direction:ltr;text-align:left}
+.brief-card h3{font-size:20px;margin:10px 0 8px}
+.brief-card p{margin:0;color:var(--c300);font-size:15px}
+
+/* ============ DIRECTIONS ============ */
+.dirs{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:50px}
+@media(max-width:1000px){.dirs{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.dirs{grid-template-columns:1fr}}
+.dir{background:#fff;border:1px solid var(--c200);padding:26px;position:relative;transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+.dir:hover{transform:translateY(-10px) rotate(-.5deg);box-shadow:0 40px 60px -30px rgba(11,27,43,.45)}
+.dir .n{position:absolute;top:18px;left:18px;font-family:var(--font-tech);font-size:44px;font-weight:700;color:var(--c200);line-height:1}
+.dir svg{width:96px;height:96px;margin-bottom:16px}
+.dir svg *{transition:.5s var(--ease)}
+.dir:hover svg .a{fill:var(--red)}
+.dir h3{font-size:20px}
+.dir p{font-size:14px;color:var(--c700);margin:8px 0 16px;min-height:66px}
+.score{display:flex;align-items:center;gap:10px;font-family:var(--font-tech);font-size:12px;direction:ltr;color:var(--c700)}
+.score i{flex:1;height:6px;background:var(--c100);overflow:hidden}
+.score i b{display:block;height:100%;background:var(--navy);width:0;transition:width 1.4s var(--ease)}
+.in .score i b{width:var(--w)}
+.dir.win{border-color:var(--red);}
+.dir.win .badge{position:absolute;top:-12px;right:18px;background:var(--red);color:#fff;font-family:var(--font-display);font-weight:800;font-size:12px;padding:4px 12px}
+.dir.win .score i b{background:var(--red)}
+
+/* ============ ROUNDS ============ */
+.rounds{display:grid;gap:26px;margin-top:50px}
+.round{display:grid;grid-template-columns:260px 1fr;gap:26px;align-items:center;background:var(--navy-2);border:1px solid rgba(255,255,255,.08);padding:22px}
+@media(max-width:800px){.round{grid-template-columns:1fr}}
+.round .num{font-family:var(--font-tech);font-size:80px;font-weight:700;line-height:1;color:var(--red-2);direction:ltr}
+.round h3{font-size:22px;margin:6px 0}
+.round p{color:var(--c300);font-size:15px;margin:0}
+.round .sheet{overflow:hidden;background:#fff;position:relative}
+.round .sheet img{transition:transform 1.2s var(--ease)}
+.round .sheet:hover img{transform:scale(1.06)}
+.round .sheet:after{content:attr(data-cap);position:absolute;bottom:0;right:0;left:0;padding:10px 16px;background:linear-gradient(transparent,rgba(11,27,43,.9));color:#fff;font-size:13px;opacity:0;transform:translateY(10px);transition:.5s}
+.round .sheet:hover:after{opacity:1;transform:none}
+.counters{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+@media(max-width:700px){.counters{grid-template-columns:repeat(2,1fr)}}
+.counter{border:1px solid rgba(255,255,255,.1);padding:24px;text-align:center;background:linear-gradient(180deg,rgba(255,255,255,.03),transparent)}
+.counter b{display:block;font-family:var(--font-tech);font-size:48px;color:#fff;direction:ltr;line-height:1}
+.counter span{font-size:13px;color:var(--c500)}
+
+/* ============ ANATOMY ============ */
+.anatomy{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+@media(max-width:900px){.anatomy{grid-template-columns:1fr}}
+.anatomy-svg{position:relative;background:#fff;border:1px solid var(--c200);padding:40px;overflow:hidden}
+.anatomy-svg svg{width:100%;height:auto;overflow:visible}
+.anatomy-svg .grid{stroke:var(--c200);stroke-width:2;opacity:0;transition:.6s}
+.anatomy-svg:hover .grid{opacity:1}
+.anatomy-svg .axis{stroke:var(--red);stroke-width:3;stroke-dasharray:24 16;opacity:0;transition:.6s}
+.anatomy-svg:hover .axis{opacity:1}
+.anatomy-svg .mark{fill:var(--red);transition:.6s}
+.anatomy-svg:hover .mark{fill:var(--navy)}
+.callouts{list-style:none;padding:0;margin:26px 0 0;display:grid;gap:14px}
+.callouts li{display:flex;gap:16px;align-items:flex-start;padding:16px;background:#fff;border:1px solid var(--c200);transition:.4s var(--ease)}
+.callouts li:hover{border-color:var(--red);transform:translateX(-6px)}
+.callouts b{flex:0 0 40px;height:40px;display:grid;place-items:center;background:var(--navy);color:#fff;font-family:var(--font-tech)}
+.callouts h4{font-size:17px;margin-bottom:2px}
+.callouts p{margin:0;font-size:14px;color:var(--c700)}
+
+/* ============ LOCKUPS ============ */
+.lockups{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:50px}
+@media(max-width:800px){.lockups{grid-template-columns:1fr}}
+.lk{position:relative;aspect-ratio:3/2;display:grid;place-items:center;padding:8%;border:1px solid rgba(255,255,255,.1);overflow:hidden;perspective:1000px}
+.lk.white{background:#fff}.lk.dark{background:var(--navy-2)}
+.lk img{width:100%;transition:transform .8s var(--ease)}
+.lk:hover img{transform:scale(1.04)}
+.lk .cap{position:absolute;top:14px;left:16px;font-family:var(--font-tech);font-size:11px;letter-spacing:.25em;direction:ltr;opacity:.6}
+.lk.white .cap{color:var(--navy)}
+.lk.wide{grid-column:1/-1;aspect-ratio:16/5}
+
+/* ============ COLORS ============ */
+.swatches{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:50px;height:340px}
+@media(max-width:800px){.swatches{grid-template-columns:repeat(2,1fr);height:auto}.sw{min-height:140px}}
+.sw{position:relative;padding:22px;display:flex;flex-direction:column;justify-content:flex-end;cursor:pointer;transition:flex .6s var(--ease),transform .5s var(--ease);flex:1;overflow:hidden}
+.swatches:hover .sw{opacity:.85}.swatches .sw:hover{opacity:1;transform:translateY(-8px)}
+.sw b{font-family:var(--font-tech);font-size:20px;direction:ltr;text-align:left}
+.sw span{font-size:13px;opacity:.8}
+.sw small{position:absolute;top:16px;right:16px;font-family:var(--font-tech);font-size:10px;letter-spacing:.2em;opacity:0;transition:.3s;direction:ltr}
+.sw:hover small{opacity:.9}
+.sw.copied small{opacity:1;color:var(--amber)}
+
+/* ============ TYPE ============ */
+.type-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;margin-top:50px;align-items:stretch}
+@media(max-width:900px){.type-grid{grid-template-columns:1fr}}
+.specimen{background:#fff;border:1px solid var(--c200);padding:40px;position:relative;overflow:hidden}
+.specimen .big{font-family:var(--font-display);font-weight:900;font-size:clamp(56px,9vw,150px);line-height:1;color:var(--navy);transition:.5s}
+.specimen:hover .big{color:var(--red)}
+.specimen .weights{display:grid;gap:8px;margin-top:26px;font-family:var(--font-display);font-size:26px;color:var(--navy)}
+.specimen .weights span{display:flex;justify-content:space-between;border-bottom:1px dashed var(--c200);padding:6px 0}
+.specimen .weights small{font-family:var(--font-tech);font-size:11px;letter-spacing:.2em;color:var(--c500);direction:ltr}
+.type-side{display:grid;gap:18px}
+.type-card{background:var(--navy);color:#fff;padding:30px}
+.type-card .en{font-family:var(--font-tech);font-size:34px;letter-spacing:.2em;direction:ltr;text-align:left;font-weight:700}
+.type-card .body{font-family:var(--font-body);font-size:15px;color:var(--c300);margin-top:10px}
+
+/* ============ MOCKUPS (CSS) ============ */
+.mock-grid{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:220px;gap:16px;margin-top:50px}
+@media(max-width:1000px){.mock-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:auto}.mock{grid-column:auto!important;grid-row:auto!important;min-height:240px}}
+.mock{position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.08);background:var(--navy-2);display:grid;place-items:center;transition:transform .5s var(--ease),box-shadow .5s}
+.mock:hover{transform:translateY(-6px);box-shadow:0 40px 60px -30px rgba(0,0,0,.7)}
+.mock .lbl{position:absolute;top:12px;right:14px;font-family:var(--font-tech);font-size:10px;letter-spacing:.25em;color:var(--c500);direction:ltr}
+/* business card */
+.mock.card3d{grid-column:span 3;grid-row:span 2;perspective:1200px;background:radial-gradient(circle at 30% 20%,#1b3552,var(--navy-2))}
+.bcard{width:min(420px,80%);aspect-ratio:1.75;position:relative;transform-style:preserve-3d;transition:transform .8s var(--ease)}
+.bcard .face{position:absolute;inset:0;backface-visibility:hidden;display:grid;place-items:center;box-shadow:0 30px 60px -20px rgba(0,0,0,.7)}
+.bcard .front{background:#fff}
+.bcard .front img{width:70%}
+.bcard .back{background:var(--navy);transform:rotateY(180deg);display:grid;grid-template-columns:1fr 1fr;padding:22px;place-items:center}
+.bcard .back img{width:60%}
+.bcard .back div{font-size:12px;color:var(--c300);line-height:1.9;text-align:start}
+.bcard .back div b{color:#fff;font-family:var(--font-display);font-size:14px;display:block}
+.mock.card3d:hover .bcard{transform:rotateY(180deg)}
+/* website header */
+.mock.web{grid-column:span 3;background:#fff;align-items:start;padding:0}
+.browser{width:100%;height:100%;display:flex;flex-direction:column}
+.browser .chrome{height:34px;background:var(--c100);display:flex;align-items:center;gap:6px;padding:0 12px;direction:ltr}
+.browser .chrome i{width:10px;height:10px;border-radius:50%;background:var(--c300)}
+.browser .chrome i:first-child{background:#ff5f57}.browser .chrome i:nth-child(2){background:#febc2e}.browser .chrome i:nth-child(3){background:#28c840}
+.browser .url{margin-left:12px;flex:1;height:20px;background:#fff;border-radius:4px;font-family:var(--font-tech);font-size:10px;display:flex;align-items:center;padding:0 10px;color:var(--c500)}
+.browser .hdr{height:64px;background:var(--navy);display:flex;align-items:center;justify-content:space-between;padding:0 20px}
+.browser .hdr img{height:36px}
+.browser .hdr nav{display:flex;gap:16px;font-family:var(--font-display);font-size:11px;font-weight:700;color:#fff}
+.browser .hdr .cta{background:var(--red);color:#fff;font-family:var(--font-display);font-size:11px;font-weight:800;padding:8px 14px}
+.browser .hero-m{flex:1;background:url(assets/site-photo.jpg) center/cover;position:relative}
+.browser .hero-m:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,27,43,.9),rgba(11,27,43,.3))}
+.browser .hero-m div{position:absolute;right:24px;top:50%;transform:translateY(-50%);color:#fff;font-family:var(--font-display);font-weight:900;font-size:22px;line-height:1.3}
+.browser .hero-m div span{color:var(--red-2)}
+/* favicon tab */
+.mock.tab{grid-column:span 2;background:#fff}
+.tabbar{width:88%;background:var(--c100);padding:10px 10px 0;direction:ltr;border-radius:10px 10px 0 0}
+.tabbar .t{background:#fff;border-radius:8px 8px 0 0;padding:8px 14px;display:flex;gap:10px;align-items:center;font-family:var(--font-tech);font-size:12px;color:var(--navy);width:70%}
+.tabbar .t img{width:16px}
+.tabbar .t2{opacity:.5;padding:8px 14px;font-family:var(--font-tech);font-size:12px;color:var(--c700)}
+/* phone */
+.mock.phone{grid-column:span 2;grid-row:span 2;background:radial-gradient(circle at 70% 10%,#1b3552,var(--navy-2))}
+.ph{width:200px;height:400px;border-radius:32px;background:#000;padding:10px;box-shadow:0 40px 80px -30px #000,inset 0 0 0 2px #333;transition:transform .8s var(--ease)}
+.mock.phone:hover .ph{transform:rotate(-4deg) translateY(-6px)}
+.ph .scr{width:100%;height:100%;border-radius:24px;background:#0b141a;overflow:hidden;display:flex;flex-direction:column}
+.ph .wa{background:#1f2c34;height:56px;display:flex;align-items:center;gap:10px;padding:0 12px;color:#fff;font-size:12px}
+.ph .wa img{width:32px;height:32px;border-radius:50%;background:#fff;padding:5px;object-fit:contain}
+.ph .wa div b{display:block;font-family:var(--font-display);font-size:12px}
+.ph .wa div span{font-size:9px;color:#8696a0}
+.ph .chat{flex:1;padding:12px;display:flex;flex-direction:column;gap:8px;background:#0b141a url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Ccircle cx='20' cy='20' r='1' fill='%23ffffff10'/%3E%3C/svg%3E")}
+.ph .bub{background:#1f2c34;color:#e9edef;font-size:10px;padding:8px 10px;border-radius:10px;max-width:85%;line-height:1.5}
+.ph .bub.me{background:#005c4b;align-self:flex-start}
+/* helmet css */
+.mock.stamp{grid-column:span 2;background:#2b3138 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='6' height='6'%3E%3Cpath d='M0 0h6v6H0z' fill='%23303740'/%3E%3Cpath d='M0 0h3v3H0z' fill='%23343b44'/%3E%3C/svg%3E")}
+.stamp-plate{width:200px;height:130px;background:linear-gradient(135deg,#8a939c,#5c6670 50%,#8a939c);display:grid;place-items:center;border:2px solid #3d444c;box-shadow:inset 0 2px 4px #fff5,inset 0 -2px 4px #0006,0 20px 40px -10px #000;position:relative}
+.stamp-plate:before,.stamp-plate:after{content:"";position:absolute;width:10px;height:10px;border-radius:50%;background:radial-gradient(#ccc,#555);top:8px;left:8px;box-shadow:174px 0 0 #888,0 104px 0 #888,174px 104px 0 #888}
+.stamp-plate img{width:80px;filter:drop-shadow(0 1px 0 #fff8) drop-shadow(0 -1px 0 #0008)}
+/* hazard tape */
+.mock.tape{grid-column:span 2;background:var(--amber);overflow:hidden}
+.mock.tape{display:block}
+.tape-row{position:absolute;left:0;top:50%;transform:translateY(-50%);display:flex;gap:40px;width:max-content;animation:tape 14s linear infinite;direction:ltr;align-items:center}
+@keyframes tape{to{transform:translate(-50%,-50%)}}
+.tape-row img{height:44px}
+.tape-row span{font-family:var(--font-tech);font-weight:700;font-size:22px;letter-spacing:.3em;color:var(--navy)}
+/* letterhead */
+.mock.letter{grid-column:span 2;grid-row:span 2;background:var(--c200)}
+.paper{width:190px;aspect-ratio:1/1.41;background:#fff;box-shadow:0 30px 50px -20px rgba(0,0,0,.6);padding:16px;display:flex;flex-direction:column;gap:8px;transition:transform .8s var(--ease)}
+.mock.letter:hover .paper{transform:translateY(-8px) rotate(1.5deg)}
+.paper img{width:100px}
+.paper i{display:block;height:4px;background:var(--c100);width:var(--w,100%)}
+.paper .hz{height:4px;background:repeating-linear-gradient(-45deg,var(--red) 0 6px,#fff 6px 12px);margin-top:auto}
+/* social avatar */
+.mock.avatar{grid-column:span 2;background:linear-gradient(135deg,#fd5949,#d6249f 60%,#285AEB)}
+.av{width:120px;height:120px;border-radius:50%;background:#fff;padding:4px;display:grid;place-items:center;box-shadow:0 20px 40px -10px #0008}
+.av div{width:100%;height:100%;border-radius:50%;background:var(--navy);display:grid;place-items:center}
+.av img{width:60%}
+
+/* ============ PHOTO MOCKUPS ============ */
+.photos{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:50px}
+@media(max-width:900px){.photos{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.photos{grid-template-columns:1fr}}
+.photo{position:relative;overflow:hidden;aspect-ratio:4/3;background:var(--navy-2);border:1px solid rgba(255,255,255,.08)}
+.photo:nth-child(1),.photo:nth-child(4){grid-column:span 2;aspect-ratio:16/8}
+@media(max-width:900px){.photo:nth-child(1),.photo:nth-child(4){grid-column:span 2}}
+.photo img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease),filter 1s}
+.photo:hover img{transform:scale(1.07)}
+.photo .cap{position:absolute;bottom:0;right:0;left:0;padding:40px 20px 16px;background:linear-gradient(transparent,rgba(11,27,43,.95));font-family:var(--font-display);font-weight:700;font-size:15px;transform:translateY(20px);opacity:0;transition:.6s var(--ease)}
+.photo:hover .cap{transform:none;opacity:1}
+
+/* ============ DO / DONT ============ */
+.rules{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:50px}
+@media(max-width:900px){.rules{grid-template-columns:repeat(2,1fr)}}
+.rule{background:#fff;border:1px solid var(--c200);aspect-ratio:1;display:grid;place-items:center;position:relative;overflow:hidden}
+.rule img{width:45%}
+.rule .x{position:absolute;inset:0;display:grid;place-items:center;font-size:120px;color:var(--red);opacity:0;transition:.3s;font-family:var(--font-tech);pointer-events:none}
+.rule.bad:hover .x{opacity:.9}
+.rule .lbl{position:absolute;bottom:10px;right:12px;font-size:12px;color:var(--c700);font-weight:600}
+.rule.bad .lbl{color:var(--red)}
+.rule.ok:after{content:"✓";position:absolute;top:10px;left:12px;color:#1B7F4B;font-size:22px;font-weight:700}
+
+/* ============ FILES / END ============ */
+.files{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:40px}
+@media(max-width:800px){.files{grid-template-columns:1fr}}
+.file{display:flex;align-items:center;gap:14px;padding:16px 18px;border:1px solid rgba(255,255,255,.12);font-family:var(--font-tech);font-size:13px;direction:ltr;transition:.4s var(--ease);position:relative;overflow:hidden}
+.file:before{content:"";position:absolute;inset:0;background:var(--red);transform:translateX(-101%);transition:transform .5s var(--ease);z-index:0}
+.file:hover:before{transform:none}
+.file *{position:relative;z-index:1}
+.file img{width:28px}
+.file span{opacity:.6;margin-left:auto;font-size:11px}
+.end{text-align:center;padding-bottom:120px}
+.end h2{font-size:clamp(40px,7vw,96px);font-weight:900}
+.end .big-emblem{width:180px;margin:0 auto 30px;animation:float 5s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-14px)}}
+.btn{display:inline-flex;align-items:center;gap:10px;background:var(--red);color:#fff;font-family:var(--font-display);font-weight:800;padding:16px 30px;position:relative;overflow:hidden;transition:transform .3s}
+.btn:after{content:"";position:absolute;top:0;bottom:0;width:40%;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);transform:translateX(-200%)}
+.btn:hover:after{transition:transform .8s;transform:translateX(350%)}
+.btn:hover{transform:translateY(-3px)}
+footer{border-top:1px solid rgba(255,255,255,.1);padding:24px 0;font-family:var(--font-tech);font-size:11px;letter-spacing:.2em;color:var(--c500);text-align:center;direction:ltr}
+
+/* magnetic tilt cards */
+[data-tilt]{transform-style:preserve-3d;will-change:transform}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+<div id="glow"></div>
+<div id="cursor"></div>
+<div id="progress"></div>
+
+<header class="topbar">
+  <a href="#top"><img src="assets/emblem-white.svg" alt="الحرمين استيل"></a>
+  <nav>
+    <a href="#story">القصة</a><a href="#directions">الاتجاهات</a><a href="#journey">الرحلة</a><a href="#mark">الشعار</a><a href="#colors">الألوان</a><a href="#mockups">التطبيقات</a><a href="#files">الملفات</a>
+  </nav>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="blueprint"></div>
+  <div class="container">
+    <div class="hero-emblem">
+      <svg viewBox="300 380 1448 1288" aria-hidden="true">
+        <path class="fill" fill-rule="evenodd" d="M1024 410 L1718 740 L1718 980 L1474 864 L1474 1638 L1230 1638 L1230 1258 L818 1258 L818 1638 L574 1638 L574 864 L330 980 L330 740 Z M818 746 L1024 648 L1230 746 L1230 1024 L818 1024 Z"/>
+        <path class="stroke" d="M1024 410 L1718 740 L1718 980 L1474 864 L1474 1638 L1230 1638 L1230 1258 L818 1258 L818 1638 L574 1638 L574 864 L330 980 L330 740 Z M818 746 L1024 648 L1230 746 L1230 1024 L818 1024 Z"/>
+      </svg>
+    </div>
+    <div class="line-rv in h-line"><h1><span>الحرمين <span class="rl">استيل</span></span></h1></div>
+    <div class="sub fade-late">AL HARAMEEN FOR STEEL STRUCTURE — BRAND IDENTITY 2026</div>
+    <p class="lead fade-late">هوية بصرية جديدة تليق بـ 23 سنة من بناء الهياكل التي تحمل كل شيء. الفكرة، الرحلة، الشعار، وتطبيقاته — في صفحة واحدة.</p>
+    <div class="hero-meta fade-late">
+      <div><b data-count="4">0</b><span>اتجاهات استراتيجية</span></div>
+      <div><b data-count="16">0</b><span>تجربة بصرية</span></div>
+      <div><b data-count="3">0</b><span>جولات تنقيح</span></div>
+      <div><b data-count="1">0</b><span>شعار نهائي</span></div>
+    </div>
+  </div>
+  <div class="scroll-hint fade-late">SCROLL<i></i></div>
+</section>
+
+<div class="hazard"></div>
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>هياكل معدنية<b>/</b></span><span>هناجر<b>/</b></span><span>مصانع<b>/</b></span><span>كباري<b>/</b></span><span>محطات وقود<b>/</b></span><span>مستودعات<b>/</b></span><span>New Hope<b>/</b></span><span>توشكا<b>/</b></span><span>23+ سنة<b>/</b></span>
+    <span>هياكل معدنية<b>/</b></span><span>هناجر<b>/</b></span><span>مصانع<b>/</b></span><span>كباري<b>/</b></span><span>محطات وقود<b>/</b></span><span>مستودعات<b>/</b></span><span>New Hope<b>/</b></span><span>توشكا<b>/</b></span><span>23+ سنة<b>/</b></span>
+  </div>
+</div>
+
+<!-- ============ STORY: BEFORE / AFTER ============ -->
+<section class="light" id="story">
+  <div class="container two">
+    <div>
+      <div class="eyebrow rv">01 — The Story</div>
+      <h2 class="title rv" data-d="1">من هنا بدأنا</h2>
+      <p class="lead rv" data-d="2">الشعار القديم كان نصًّا داخل صندوق وفوقه سقف صغير. يعمل على ورقة، لكنه يختفي على خوذة، أو شاحنة، أو أيقونة موقع. الهوية الجديدة تبدأ من سؤال واحد: ما الشكل الذي يقول "هياكل معدنية" من أول نظرة؟</p>
+      <ul class="issues rv" data-d="3">
+        <li>لا يوجد رمز مستقل يعمل بدون النص</li>
+        <li>لا يعمل بلون واحد ولا بأحجام صغيرة</li>
+        <li>خلفية بيضاء مغلقة تمنع استخدامه على الصور والخلفيات الداكنة</li>
+        <li>لا يعكس حجم الشركة ومشروعاتها القومية</li>
+      </ul>
+    </div>
+    <div class="compare rv rv-clip" data-d="2" id="compare">
+      <div class="pane before"><img src="assets/logo-old.png" alt="الشعار القديم"></div>
+      <div class="pane after"><img src="assets/logo-vertical-dark.svg" alt="الشعار الجديد"></div>
+      <div class="handle"></div>
+      <span class="tag old">BEFORE</span><span class="tag new">AFTER</span>
+      <input type="range" min="0" max="100" value="50" aria-label="قارن بين الشعار القديم والجديد">
+    </div>
+  </div>
+</section>
+
+<!-- ============ BRIEF ============ -->
+<section id="brief">
+  <div class="blueprint"></div>
+  <div class="container">
+    <div class="eyebrow rv">02 — Brand Brief</div>
+    <h2 class="title rv" data-d="1">قبل أي رسم، فهمنا الشركة</h2>
+    <p class="lead rv" data-d="2">هوية ناجحة تبدأ من استراتيجية لا من ذوق. هذه الأسس التي حكمت كل قرار بعدها.</p>
+    <div class="brief-grid">
+      <div class="brief-card rv" data-tilt><div class="k">POSITIONING</div><h3>الشريك الموثوق للمنشآت الثقيلة</h3><p>كبيرة بما يكفي لمشروعات قومية مثل توشكا وNew Hope، وقريبة بما يكفي لترد على الهاتف.</p></div>
+      <div class="brief-card rv" data-d="1" data-tilt><div class="k">PERSONALITY</div><h3>مهندس، لا بائع</h3><p>صلب، دقيق، هادئ، مباشر. يتكلم بالأرقام والأكواد لا بالوعود.</p></div>
+      <div class="brief-card rv" data-d="2" data-tilt><div class="k">CORE MESSAGE</div><h3>نبني الهياكل التي تحمل كل شيء</h3><p>القوة التي يُعتمد عليها. كل ما فوق الأرض يقف على ما نصنعه.</p></div>
+      <div class="brief-card rv" data-d="3" data-tilt><div class="k">AUDIENCE</div><h3>من يقرر في المشروع</h3><p>مستثمرون صناعيون، مقاولون عموميون، استشاريون، وجهات حكومية. 70% منهم يتصفحون من الموبايل.</p></div>
+      <div class="brief-card rv" data-d="4" data-tilt><div class="k">VISUAL KEYWORDS</div><h3>Beam · Truss · Joint · Gable · Nut</h3><p>مفردات من أرض الواقع الهندسي لا من مكتبة أيقونات جاهزة.</p></div>
+      <div class="brief-card rv" data-d="5" data-tilt><div class="k">AVOID</div><h3>ما رفضناه من البداية</h3><p>الرافعة، الخوذة، الكرة الأرضية، التدرجات المعدنية ثلاثية الأبعاد، والبيت الكرتوني.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DIRECTIONS ============ -->
+<section class="light" id="directions">
+  <div class="container">
+    <div class="eyebrow rv">03 — Creative Directions</div>
+    <h2 class="title rv" data-d="1">أربعة اتجاهات، وحكم بالأرقام</h2>
+    <p class="lead rv" data-d="2">لكل اتجاه فكرة استراتيجية مختلفة. قيّمناها على خمسة معايير: المعنى، التميّز، العمل بلون واحد وبحجم صغير، قابلية التنفيذ، والاستمرارية مع الشعار القديم.</p>
+    <div class="dirs">
+      <div class="dir rv win" data-tilt><span class="badge">الفائز</span><span class="n">A</span>
+        <svg viewBox="0 0 100 100"><path class="a" fill="#0B1B2B" fill-rule="evenodd" d="M50 12 L88 30 L88 43 L75 37 L75 88 L61 88 L61 66 L39 66 L39 88 L25 88 L25 37 L12 43 L12 30 Z M39 32 L50 26 L61 32 L61 52 L39 52 Z"/></svg>
+        <h3>H-Beam Monogram</h3><p>حرف H من اسم "الحرمين" مرسوم كمقطع كمرة حديدية، وسقفه جملون. الاسم والمنتج والمبنى في شكل واحد.</p>
+        <div class="score"><span>23/25</span><i><b style="--w:92%"></b></i></div>
+      </div>
+      <div class="dir rv" data-d="1" data-tilt><span class="n">B</span>
+        <svg viewBox="0 0 100 100"><path class="a" fill="#0B1B2B" d="M10 85h80v8H10zM10 50 32 28l18 18 18-18 22 22-6 6-16-16-18 18-18-18-16 16z"/><rect class="a" fill="#0B1B2B" x="46" y="46" width="8" height="39"/></svg>
+        <h3>Twin Gables</h3><p>"الحرمين" = اثنان. إطاران جملونيان يتشاركان عمودًا واحدًا فيصيران هيكلًا أقوى.</p>
+        <div class="score"><span>18/25</span><i><b style="--w:72%"></b></i></div>
+      </div>
+      <div class="dir rv" data-d="2" data-tilt><span class="n">C</span>
+        <svg viewBox="0 0 100 100"><path class="a" fill="none" stroke="#0B1B2B" stroke-width="8" d="M50 8 86 29v42L50 92 14 71V29z"/><path fill="none" stroke="#C1121F" stroke-width="7" d="M50 50V8M50 50 14 71M50 50l36 21"/></svg>
+        <h3>The Node</h3><p>القوة في الوصلة لا في الكمرة. صامولة سداسية تلتقي فيها الأعضاء في نقطة واحدة.</p>
+        <div class="score"><span>20/25</span><i><b style="--w:80%"></b></i></div>
+      </div>
+      <div class="dir rv" data-d="3" data-tilt><span class="n">D</span>
+        <svg viewBox="0 0 100 100"><text x="50" y="52" text-anchor="middle" font-family="Cairo" font-weight="900" font-size="34" fill="#0B1B2B">الحرمين</text><rect class="a" fill="#0B1B2B" x="14" y="62" width="72" height="8"/></svg>
+        <h3>Steel Plate Wordmark</h3><p>بدون رمز: الاسم نفسه هو الهيكل، بخط كوفي ثقيل وكمرة حمراء تحته.</p>
+        <div class="score"><span>11/25</span><i><b style="--w:44%"></b></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ JOURNEY ============ -->
+<section id="journey">
+  <div class="blueprint"></div>
+  <div class="container">
+    <div class="eyebrow rv">04 — The Journey</div>
+    <h2 class="title rv" data-d="1">ثلاث جولات من التنقيح المنضبط</h2>
+    <p class="lead rv" data-d="2">لم نطلب من الذكاء الاصطناعي "شعارًا جميلًا". أعطيناه فكرة واحدة وغيّرنا متغيرًا واحدًا كل مرة، ثم أعدنا رسم الفائز بأيدينا كملف Vector مثالي التماثل.</p>
+    <div class="rounds">
+      <div class="round rv"><div><div class="num">01</div><h3>الاستكشاف</h3><p>8 تجارب: 4 للاتجاه A و4 للاتجاه C. ظهر فورًا أن الـ H الثقيل أقوى من العنكبوت السداسي.</p></div><div class="sheet" data-cap="الجولة الأولى — الصف العلوي A، الصف السفلي C"><img src="assets/round1-contact-sheet.png" alt="الجولة الأولى"></div></div>
+      <div class="round rv" data-d="1"><div><div class="num">02</div><h3>الدمج</h3><p>دمجنا أفضل ما في #2 و#8: حرف H بلا سيرفات، سقفه جملون. النسخة الصلبة #14 فازت بأقوى صورة ظلية.</p></div><div class="sheet" data-cap="الجولة الثانية — ولادة الفكرة النهائية"><img src="assets/round2-contact-sheet.png" alt="الجولة الثانية"></div></div>
+      <div class="round rv" data-d="2"><div><div class="num">03</div><h3>التنقيح</h3><p>ثلاث نسخ محكومة من #14: تماثل مثالي، فجوة بين السقف والـ H، وسقف أكثر حدّة. فاز التماثل المثالي.</p></div><div class="sheet" data-cap="الجولة الثالثة — المرجع ثم ثلاث نسخ"><img src="assets/round3-contact-sheet.png" alt="الجولة الثالثة"></div></div>
+    </div>
+    <div class="counters">
+      <div class="counter rv"><b data-count="16">0</b><span>صورة مولّدة</span></div>
+      <div class="counter rv" data-d="1"><b data-count="3">0</b><span>جولات</span></div>
+      <div class="counter rv" data-d="2"><b data-count="13">0</b><span>نقطة في المسار النهائي</span></div>
+      <div class="counter rv" data-d="3"><b data-count="100" data-suffix="%">0</b><span>تماثل هندسي</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MARK ANATOMY ============ -->
+<section class="light" id="mark">
+  <div class="container anatomy">
+    <div class="anatomy-svg rv rv-clip">
+      <svg viewBox="230 310 1588 1428">
+        <g class="grid"><path d="M230 410H1818M230 648H1818M230 740H1818M230 864H1818M230 1024H1818M230 1258H1818M230 1638H1818M330 310V1738M574 310V1738M818 310V1738M1024 310V1738M1230 310V1738M1474 310V1738M1718 310V1738"/></g>
+        <path class="mark" fill-rule="evenodd" d="M1024 410 L1718 740 L1718 980 L1474 864 L1474 1638 L1230 1638 L1230 1258 L818 1258 L818 1638 L574 1638 L574 864 L330 980 L330 740 Z M818 746 L1024 648 L1230 746 L1230 1024 L818 1024 Z"/>
+        <path class="axis" d="M1024 330V1720"/>
+      </svg>
+    </div>
+    <div>
+      <div class="eyebrow rv">05 — The Mark</div>
+      <h2 class="title rv" data-d="1">شكل واحد. ثلاث معانٍ.</h2>
+      <p class="lead rv" data-d="2">مرّر الماوس على الشعار لترى الشبكة الهندسية التي بُني عليها. كل نقطة من النقاط الثلاث عشرة محسوبة على شبكة 2048 ومتماثلة حول محور واحد.</p>
+      <ul class="callouts">
+        <li class="rv" data-d="1"><b>H</b><div><h4>الحرف الأول من "الحرمين"</h4><p>حرف بلا سيرفات، ثقيل، بعرض ضربة موحّد كأنه مقصوص من لوح صلب.</p></div></li>
+        <li class="rv" data-d="2"><b>I</b><div><h4>مقطع كمرة H-Beam</h4><p>الشكل الذي يعرفه كل مهندس إنشائي. المنتج نفسه هو الشعار.</p></div></li>
+        <li class="rv" data-d="3"><b>Λ</b><div><h4>سقف جملوني (Gable)</h4><p>المبنى الصناعي في رؤية أمامية. يحافظ على ذاكرة "السقف" في الشعار القديم.</p></div></li>
+        <li class="rv" data-d="4"><b>◎</b><div><h4>يعمل في كل مكان</h4><p>لون واحد، بلا تدرجات، واضح من 16 بكسل حتى واجهة مبنى.</p></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LOCKUPS ============ -->
+<section id="lockups">
+  <div class="blueprint"></div>
+  <div class="container">
+    <div class="eyebrow rv">06 — Lockups</div>
+    <h2 class="title rv" data-d="1">الشعار بكل تركيباته</h2>
+    <p class="lead rv" data-d="2">النص مكتوب بخط حقيقي (Cairo) لا مرسوم، فالحروف العربية صحيحة دائمًا. تركيبة أفقية للموقع واللافتات، ورأسية للسوشيال والمطبوعات.</p>
+    <div class="lockups">
+      <div class="lk white rv"><img src="assets/logo-vertical.svg" alt="تركيبة رأسية على أبيض"><span class="cap">VERTICAL / LIGHT</span></div>
+      <div class="lk dark rv" data-d="1"><img src="assets/logo-vertical-dark.svg" alt="تركيبة رأسية على داكن"><span class="cap">VERTICAL / DARK</span></div>
+      <div class="lk white wide rv" data-d="2"><img src="assets/logo-horizontal.svg" alt="تركيبة أفقية على أبيض"><span class="cap">HORIZONTAL / LIGHT</span></div>
+      <div class="lk dark wide rv" data-d="3"><img src="assets/logo-horizontal-dark.svg" alt="تركيبة أفقية على داكن"><span class="cap">HORIZONTAL / DARK</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COLORS ============ -->
+<section class="light" id="colors">
+  <div class="container">
+    <div class="eyebrow rv">07 — Color</div>
+    <h2 class="title rv" data-d="1">لونان يقولان كل شيء</h2>
+    <p class="lead rv" data-d="2">أحمر السلامة للفعل، كحلي الحديد للثقة، والأصفر التحذيري لمسة نادرة. اضغط على أي لون لنسخ كوده.</p>
+    <div class="swatches rv" data-d="2">
+      <div class="sw" style="background:#C1121F;color:#fff;flex:2" data-hex="#C1121F"><small>CLICK TO COPY</small><b>#C1121F</b><span>Safety Red — الأحمر الأساسي</span></div>
+      <div class="sw" style="background:#0B1B2B;color:#fff;flex:2" data-hex="#0B1B2B"><small>CLICK TO COPY</small><b>#0B1B2B</b><span>Steel Navy — الكحلي</span></div>
+      <div class="sw" style="background:#F0A73C;color:#0B1B2B" data-hex="#F0A73C"><small>CLICK TO COPY</small><b>#F0A73C</b><span>Hazard Amber</span></div>
+      <div class="sw" style="background:#3E5064;color:#fff" data-hex="#3E5064"><small>CLICK TO COPY</small><b>#3E5064</b><span>Steel Grey</span></div>
+      <div class="sw" style="background:#EEF1F4;color:#0B1B2B;border:1px solid #ddd" data-hex="#EEF1F4"><small>CLICK TO COPY</small><b>#EEF1F4</b><span>Concrete</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TYPOGRAPHY ============ -->
+<section id="type">
+  <div class="blueprint"></div>
+  <div class="container">
+    <div class="eyebrow rv">08 — Typography</div>
+    <h2 class="title rv" data-d="1">خط يُقرأ كأنه مقصوص من الصلب</h2>
+    <div class="type-grid">
+      <div class="specimen rv" data-d="1">
+        <div class="big">الحرمين</div>
+        <div class="weights">
+          <span style="font-weight:900">نبني الهياكل التي تصنع المستقبل<small>CAIRO 900</small></span>
+          <span style="font-weight:800">هناجر · مصانع · كباري · محطات وقود<small>CAIRO 800</small></span>
+          <span style="font-weight:700">23 سنة من الخبرة والالتزام<small>CAIRO 700</small></span>
+          <span style="font-family:'IBM Plex Sans Arabic';font-weight:400;font-size:18px">نص الفقرات بخط IBM Plex Sans Arabic لقراءة مريحة على الموبايل والشاشات الكبيرة.<small>PLEX 400</small></span>
+        </div>
+      </div>
+      <div class="type-side">
+        <div class="type-card rv" data-d="2"><div class="en">AL HARAMEEN<br>STEEL</div><div class="body">Chakra Petch للعناوين اللاتينية التقنية والأرقام. طابع هندسي صناعي يكمل Cairo دون منافسة.</div></div>
+        <div class="type-card rv" data-d="3" style="background:var(--red)"><div class="en" style="font-size:64px">23+</div><div class="body" style="color:#fff">الأرقام الكبيرة بأرقام ثابتة العرض (tabular) لتصطف في الإحصائيات.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MOCKUPS (CSS) ============ -->
+<section class="light" id="mockups" style="background:#0F2236;color:#fff">
+  <div class="container">
+    <div class="eyebrow rv" style="color:var(--red-2)">09 — Applications</div>
+    <h2 class="title rv" data-d="1">الشعار في الحياة الحقيقية</h2>
+    <p class="lead rv" data-d="2" style="color:var(--c300)">كل عنصر هنا تفاعلي. حرّك الماوس، اقلب الكارت، وشاهد كيف يعيش الشعار على كل خامة.</p>
+    <div class="mock-grid">
+      <div class="mock card3d rv"><span class="lbl">BUSINESS CARD — HOVER TO FLIP</span>
+        <div class="bcard"><div class="face front"><img src="assets/logo-vertical.svg" alt=""></div><div class="face back"><img src="assets/emblem.svg" alt=""><div><b>عمرو الحسيني</b>الحرمين استيل<br>+20 10 3386 8319<br>مدينة السادات — مصر</div></div></div>
+      </div>
+      <div class="mock web rv" data-d="1"><span class="lbl" style="color:var(--c500)">WEBSITE HEADER</span>
+        <div class="browser"><div class="chrome"><i></i><i></i><i></i><div class="url">alharameensteel.com</div></div>
+          <div class="hdr"><img src="assets/logo-horizontal-dark.svg" alt=""><nav><span>الرئيسية</span><span>خدماتنا</span><span>المشاريع</span><span>تواصل</span></nav><span class="cta">اطلب عرض سعر</span></div>
+          <div class="hero-m"><div>نبني الهياكل التي<br><span>تصنع المستقبل</span></div></div>
+        </div>
+      </div>
+      <div class="mock phone rv" data-d="2"><span class="lbl">WHATSAPP BUSINESS</span>
+        <div class="ph"><div class="scr"><div class="wa"><img src="assets/emblem.svg" alt=""><div><b>الحرمين استيل</b><span>حساب أعمال · متصل الآن</span></div></div>
+          <div class="chat"><div class="bub">أهلاً بك في الحرمين استيل 👋 كيف نساعدك في مشروعك؟</div><div class="bub me">عايز عرض سعر لهنجر 3000 م²</div><div class="bub">تمام، هيتواصل معك مهندس خلال ساعة.</div></div></div></div>
+      </div>
+      <div class="mock tab rv" data-d="1"><span class="lbl" style="color:var(--c500)">FAVICON 16PX</span>
+        <div class="tabbar"><div class="t"><img src="assets/emblem.svg" alt="">الحرمين استيل</div><div class="t2">+</div></div>
+      </div>
+      <div class="mock stamp rv" data-d="2"><span class="lbl">STEEL PLATE</span><div class="stamp-plate"><img src="assets/emblem-navy.svg" alt=""></div></div>
+      <div class="mock tape rv" data-d="3"><span class="lbl" style="color:var(--navy)">SITE TAPE</span>
+        <div class="tape-row"><img src="assets/emblem-navy.svg" alt=""><span>AL HARAMEEN STEEL</span><img src="assets/emblem-navy.svg" alt=""><span>SAFETY FIRST</span><img src="assets/emblem-navy.svg" alt=""><span>AL HARAMEEN STEEL</span><img src="assets/emblem-navy.svg" alt=""><span>SAFETY FIRST</span></div>
+      </div>
+      <div class="mock letter rv" data-d="2"><span class="lbl" style="color:var(--c700)">LETTERHEAD</span>
+        <div class="paper"><img src="assets/logo-horizontal.svg" alt=""><i style="--w:60%;margin-top:14px"></i><i></i><i></i><i style="--w:80%"></i><i></i><i style="--w:40%"></i><div class="hz"></div></div>
+      </div>
+      <div class="mock avatar rv" data-d="3"><span class="lbl" style="color:#fff">SOCIAL AVATAR</span><div class="av"><div><img src="assets/emblem-white.svg" alt=""></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PHOTO MOCKUPS ============ -->
+<section id="photos">
+  <div class="blueprint"></div>
+  <div class="container">
+    <div class="eyebrow rv">10 — On Site</div>
+    <h2 class="title rv" data-d="1">على الخوذة، على الشاحنة، على المبنى</h2>
+    <p class="lead rv" data-d="2">تصوّر واقعي لكيف ستبدو الهوية في مواقع العمل والمكاتب.</p>
+    <div class="photos" id="photoGrid">
+      <div class="photo rv"><img src="assets/mockups/truck.jpg" alt="الشعار على شاحنة"><div class="cap">أسطول النقل — شاحنة نقل الكمرات</div></div>
+      <div class="photo rv" data-d="1"><img src="assets/mockups/hardhat.jpg" alt="الشعار على خوذة"><div class="cap">خوذة السلامة</div></div>
+      <div class="photo rv" data-d="2"><img src="assets/mockups/vest.jpg" alt="الشعار على جاكيت"><div class="cap">زي المهندسين والعمال</div></div>
+      <div class="photo rv"><img src="assets/mockups/facade.jpg" alt="لافتة واجهة"><div class="cap">واجهة المقر — لافتة مجسّمة</div></div>
+      <div class="photo rv" data-d="1"><img src="assets/mockups/plate.jpg" alt="لوحة صلب"><div class="cap">لوحة تعريف على المنشأة</div></div>
+      <div class="photo rv" data-d="2"><img src="assets/mockups/lobby.jpg" alt="استقبال"><div class="cap">صالة الاستقبال</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RULES ============ -->
+<section class="light" id="rules">
+  <div class="container">
+    <div class="eyebrow rv">11 — Do &amp; Don't</div>
+    <h2 class="title rv" data-d="1">كيف نحافظ عليه</h2>
+    <div class="rules">
+      <div class="rule ok rv"><img src="assets/emblem.svg" alt=""><span class="lbl">أحمر على أبيض</span></div>
+      <div class="rule ok rv" data-d="1" style="background:var(--navy)"><img src="assets/emblem-white.svg" alt=""><span class="lbl" style="color:#fff">أبيض على كحلي</span></div>
+      <div class="rule bad rv" data-d="2"><img src="assets/emblem.svg" alt="" style="transform:scaleX(1.6)"><div class="x">✕</div><span class="lbl">لا تمدّه أو تضغطه</span></div>
+      <div class="rule bad rv" data-d="3"><img src="assets/emblem.svg" alt="" style="filter:hue-rotate(140deg) drop-shadow(6px 6px 0 #0004)"><div class="x">✕</div><span class="lbl">لا ألوان أخرى ولا ظلال</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FILES ============ -->
+<section id="files">
+  <div class="blueprint"></div>
+  <div class="container">
+    <div class="eyebrow rv">12 — Files</div>
+    <h2 class="title rv" data-d="1">جاهز للاستخدام اليوم</h2>
+    <div class="files">
+      <a class="file rv" href="assets/emblem.svg" download><img src="assets/emblem.svg" alt="">emblem.svg<span>RED</span></a>
+      <a class="file rv" data-d="1" href="assets/emblem-white.svg" download><img src="assets/emblem-white.svg" alt="">emblem-white.svg<span>DARK BG</span></a>
+      <a class="file rv" data-d="2" href="assets/emblem-navy.svg" download><img src="assets/emblem-navy.svg" alt="">emblem-navy.svg<span>MONO</span></a>
+      <a class="file rv" data-d="3" href="assets/logo-horizontal.svg" download><img src="assets/emblem.svg" alt="">logo-horizontal.svg<span>WEB</span></a>
+      <a class="file rv" data-d="4" href="assets/logo-vertical.svg" download><img src="assets/emblem.svg" alt="">logo-vertical.svg<span>PRINT</span></a>
+      <a class="file rv" data-d="5" href="assets/emblem-final-2k.png" download><img src="assets/emblem.svg" alt="">emblem-2k.png<span>RASTER</span></a>
+    </div>
+  </div>
+</section>
+
+<div class="hazard red"></div>
+<section class="end">
+  <div class="container">
+    <img class="big-emblem rv" src="assets/emblem.svg" alt="">
+    <h2 class="rv" data-d="1">نبني الهياكل التي<br><span style="color:var(--red-2)">تحمل كل شيء</span></h2>
+    <p class="lead rv" data-d="2" style="margin:20px auto 34px">الهوية جاهزة. الخطوة التالية: الموقع الجديد الذي يليق بها.</p>
+    <a class="btn rv" data-d="3" href="https://wa.me/201033868319" target="_blank" rel="noopener">تواصل معنا على واتساب ←</a>
+  </div>
+</section>
+<footer>AL HARAMEEN FOR STEEL STRUCTURE — BRAND KIT v1 — 2026</footer>
+
+<script>
+// ---------- reveal ----------
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15,rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('.rv,.line-rv').forEach(x=>io.observe(x));
+
+// ---------- counters ----------
+const cio=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target,t=+el.dataset.count,s=el.dataset.suffix||'',st=performance.now(),d=1600;
+ (function step(n){const p=Math.min((n-st)/d,1),v=Math.round((1-Math.pow(1-p,3))*t);el.textContent=v+s;if(p<1)requestAnimationFrame(step)})(st);cio.unobserve(el)}),{threshold:.5});
+document.querySelectorAll('[data-count]').forEach(x=>cio.observe(x));
+
+// ---------- progress ----------
+const pr=document.getElementById('progress');
+addEventListener('scroll',()=>{const h=document.documentElement;pr.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'},{passive:true});
+
+// ---------- cursor + glow ----------
+const cur=document.getElementById('cursor'),glow=document.getElementById('glow');let mx=innerWidth/2,my=innerHeight/2,gx=mx,gy=my;
+addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.transform=`translate(${mx}px,${my}px) translate(-50%,-50%)`});
+(function loop(){gx+=(mx-gx)*.08;gy+=(my-gy)*.08;glow.style.transform=`translate(${gx}px,${gy}px) translate(-50%,-50%)`;requestAnimationFrame(loop)})();
+document.querySelectorAll('a,button,.sw,.mock,.dir,.lk,.compare,.photo').forEach(el=>{el.addEventListener('mouseenter',()=>cur.classList.add('big'));el.addEventListener('mouseleave',()=>cur.classList.remove('big'))});
+
+// ---------- compare slider ----------
+const cmp=document.getElementById('compare');cmp.querySelector('input').addEventListener('input',e=>cmp.style.setProperty('--x',e.target.value+'%'));
+
+// ---------- tilt ----------
+if(matchMedia('(hover:hover)').matches){document.querySelectorAll('[data-tilt]').forEach(el=>{el.addEventListener('mousemove',e=>{const r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;el.style.transform=`translateY(-8px) rotateX(${-y*8}deg) rotateY(${x*8}deg)`});el.addEventListener('mouseleave',()=>el.style.transform='')})}
+
+// ---------- copy hex ----------
+document.querySelectorAll('.sw').forEach(s=>s.addEventListener('click',()=>{navigator.clipboard&&navigator.clipboard.writeText(s.dataset.hex);s.classList.add('copied');s.querySelector('small').textContent='COPIED ✓';setTimeout(()=>{s.classList.remove('copied');s.querySelector('small').textContent='CLICK TO COPY'},1500)}));
+
+// ---------- parallax on hero grid ----------
+const he=document.querySelector('.hero .hero-emblem');
+addEventListener('scroll',()=>{const y=Math.min(scrollY,700);he.style.transform=`translateY(${y*.18}px) scale(${1-y/2800})`;he.style.opacity=1-y/800;},{passive:true});
+
+// ---------- hide photos that failed to load ----------
+document.querySelectorAll('.photo img').forEach(im=>im.addEventListener('error',()=>im.closest('.photo').remove()));
+
+// ---------- reduced motion ----------
+if(matchMedia('(prefers-reduced-motion:reduce)').matches){document.querySelectorAll('.rv,.line-rv').forEach(x=>x.classList.add('in'))}
+</script>
+</body>
+</html>
